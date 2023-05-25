@@ -35,7 +35,7 @@ public class EnemySpawner : MonoBehaviour
         InvokeRepeating("SpawnSpike", 1f, spawnRate);
     }
 
-    public void stopSpawning()
+    public void StopSpawning()
     {
         CancelInvoke("SpawnSpike");
     }

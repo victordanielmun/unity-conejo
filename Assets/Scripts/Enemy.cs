@@ -18,10 +18,13 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Destroy(collision.gameObject);
+            GameMananger.instance.GameOver();
         }
 
         else if(collision.gameObject.tag == "Ground")
         {
+            GameMananger.instance.IncrementScore();
+            
             GameObject dustEffect = Instantiate(dust, transform.position, Quaternion.identity);
             
             Destroy(dustEffect, 2f);

@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class GameMananger : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static GameMananger instance;
+    bool gameOver = false;
+    int score = 0;
+
+    private void Awake() 
+        {
+        if (instance == null)
+            {
+                instance = this;
+            }
+        }
+
+    public void GameOver()
     {
-        
+        gameOver = true;
+
+        GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().StopSpawning();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void IncrementScore()
     {
-        
+        score++;
+        print(score);
     }
 }
