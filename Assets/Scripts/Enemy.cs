@@ -6,20 +6,26 @@ public class Enemy : MonoBehaviour
 {
     public float rotationSpeed;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public GameObject dust;
 
     private void FixedUpdate()
     {
         transform.Rotate(0,0, rotationSpeed);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Destroy(collision.gameObject);
+        }
+
+        else if(collision.gameObject.tag == "Ground")
+        {
+            GameObject dustEffect = Instantiate(dust, transform.position, Quaternion.identity);
+            
+            Destroy(dustEffect, 2f);
+            Destroy(gameObject, 2f);
+        }
     }
 }
