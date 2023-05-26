@@ -1,12 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameMananger : MonoBehaviour
 {
     public static GameMananger instance;
     bool gameOver = false;
     int score = 0;
+    public TMP_Text scoreText;
+    public TMP_Text scoreTextPanel;
+    public GameObject gameOverPanel;
+
 
     private void Awake() 
         {
@@ -21,11 +27,30 @@ public class GameMananger : MonoBehaviour
         gameOver = true;
 
         GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().StopSpawning();
+        GameObject.Find("EnemySpawner1").GetComponent<EnemySpawner1>().StopSpawning();
+
+        scoreTextPanel.text = "Tu Puntaje es : " + score;
+        gameOverPanel.SetActive(true);
     }
 
     public void IncrementScore()
     {
-        score++;
-        print(score);
+        if (!gameOver)
+        {
+            score++;
+            scoreText.text = score.ToString();
+            print(score);
+        }
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
+    public void Restart()
+    {
+        gameOverPanel.SetActive(false);
+        SceneManager.LoadScene("Game");
     }
 }

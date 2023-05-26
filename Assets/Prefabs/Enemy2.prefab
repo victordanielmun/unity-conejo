@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6967325245932636622}
   - component: {fileID: -4461994093502261508}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: -437850077
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d34021ff4f89fec4b9ba80022a349a17, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 274e0f08161689849ac0cb2d79d7d757, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -103,7 +103,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1.2
+  m_GravityScale: 0.8
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c71f0c3c513afc643b420c786d1ba846, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 5
+  rotationSpeed: 7
   dust: {fileID: 6124365100197237693, guid: 0fa799fe2adffff42b46028fe3e4b097, type: 3}
 --- !u!96 &-4461994093502261508
 TrailRenderer:
