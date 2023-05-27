@@ -12,6 +12,9 @@ public class GameMananger : MonoBehaviour
     public TMP_Text scoreText;
     public TMP_Text scoreTextPanel;
     public GameObject gameOverPanel;
+    public AudioSource audioClic;
+    public AudioSource audioDie;
+    public AudioSource audioBackground;
 
 
     private void Awake() 
@@ -25,10 +28,11 @@ public class GameMananger : MonoBehaviour
     public void GameOver()
     {
         gameOver = true;
-
+        audioBackground.volume = 0.25f;
+        audioDie.Play();
         GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().StopSpawning();
         GameObject.Find("EnemySpawner1").GetComponent<EnemySpawner1>().StopSpawning();
-
+        GameObject.Find("EnemySpawner2").GetComponent<EnemySpawner2>().StopSpawning();
         scoreTextPanel.text = "Tu Puntaje es : " + score;
         gameOverPanel.SetActive(true);
     }
@@ -45,11 +49,15 @@ public class GameMananger : MonoBehaviour
 
     public void MainMenu()
     {
+        audioClic.Play();
+        audioBackground.Stop();
         SceneManager.LoadScene("Menu");
     }
 
     public void Restart()
     {
+        audioClic.Play();
+        audioClic.Play();
         gameOverPanel.SetActive(false);
         SceneManager.LoadScene("Game");
     }
